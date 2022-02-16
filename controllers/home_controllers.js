@@ -7,12 +7,14 @@ module.exports.home=function(req,res){
    return res.render("home");
 }
 
-module.exports.country=function(req,res){
-   return res.render("country");
+module.exports.country= async function(req,res){
+  let recent_search= await Country.find({});
+    return  res.render("country",{search: recent_search});
 }
 
-module.exports.place=function(req,res){
-   return res.render("state");
+module.exports.place= async function(req,res){
+  let recent_search= await State.find({});
+    return  res.render("state",{search: recent_search});
 }
 
 module.exports.country_search = function(req,res) {

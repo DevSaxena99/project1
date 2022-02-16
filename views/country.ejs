@@ -26,6 +26,19 @@
       <a class="rent-hire btn btn-lg btn-outline-info" href="/">Cancel</a>
     </form>
 
+
+    <%if(search.length===0){%>
+    <p class="para">No Search....</p>
+  <%}%>
+
+  <div class="items">
+    <% search.forEach((item) => { %>
+      <div class="item" style="width: 18rem;">
+        <p><%=item.place%></p>
+      </div>
+    <% }); %>
+  </div>
+
   </div>
 
 </body>
