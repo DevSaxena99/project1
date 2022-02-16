@@ -1,8 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const db=require('./config/mongoose');
 const https = require("https");
 const app = express();
 const port=process.env.PORT || 3000;
+const MongoStore = require('connect-mongo');
 
 app.use(express.urlencoded({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}));

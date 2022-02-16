@@ -1,3 +1,5 @@
+const Country=require('../models/country');
+const State=require('../models/state');
 const https = require("https");
 const http = require("http");
 
@@ -15,7 +17,11 @@ module.exports.place=function(req,res){
 
 module.exports.country_search = function(req,res) {
   const country = req.body.country;
+  Country.create({
+    place: country,
+  });
   const url = "http://api.openweathermap.org/geo/1.0/direct?q="+country+"&appid=54048e5804c5b9ce4e7600a6318b2f27";
+
   http.get(url,function(response) {
     response.on("data",function(data) {
         const wheatherData=JSON.parse(data);
@@ -43,6 +49,9 @@ module.exports.country_search = function(req,res) {
 
 module.exports.place_search = function(req,res) {
   const place = req.body.place;
+  State.create({
+    place: place,
+  });
   const url = "http://api.openweathermap.org/geo/1.0/direct?q="+place+"&appid=54048e5804c5b9ce4e7600a6318b2f27";
   http.get(url,function(response) {
     response.on("data",function(data) {
