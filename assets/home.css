@@ -1,0 +1,44 @@
+body {
+  background-image: url(home2.gif);
+  background-repeat: no-repeat;
+  background-size: 2000px 1000px;
+}
+
+h1 {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.first {
+  text-align: left;
+  position: absolute;
+  left: 400px;
+  top: 350px;
+}
+
+.second {
+  text-align: left;
+  position: absolute;
+  left: 400px;
+  top: 500px;
+}
+.first .button {
+  margin-left: 300px;
+}
+
+.second .button {
+  margin-left: 300px;
+}
+.button {
+  background-color: #F9C4BA;
+  border: none;
+  width: 300px;
+  color: black;
+  font-weight: bold;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+}

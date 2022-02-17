@@ -26,10 +26,10 @@ module.exports.country_search = function(req,res) {
 
   http.get(url,function(response) {
     response.on("data",function(data) {
-        const wheatherData=JSON.parse(data);
+        const weatherData=JSON.parse(data);
 
-        const lat=(wheatherData[0].lat);
-        const lon=(wheatherData[0].lon);
+        const lat=(weatherData[0].lat);
+        const lon=(weatherData[0].lon);
 
         const url2 = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=54048e5804c5b9ce4e7600a6318b2f27";
 
@@ -57,17 +57,16 @@ module.exports.place_search = function(req,res) {
   const url = "http://api.openweathermap.org/geo/1.0/direct?q="+place+"&appid=54048e5804c5b9ce4e7600a6318b2f27";
   http.get(url,function(response) {
     response.on("data",function(data) {
-        const wheatherData=JSON.parse(data);
+        const weatherData=JSON.parse(data);
 
-        const lat=(wheatherData[0].lat);
-        const lon=(wheatherData[0].lon);
+        const lat=(weatherData[0].lat);
+        const lon=(weatherData[0].lon);
 
         const url2 = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=54048e5804c5b9ce4e7600a6318b2f27";
 
         http.get(url2,function(resp) {
           resp.on("data",function(data) {
             const alldata=JSON.parse(data);
-            console.log(alldata);
             const dataValue = {
               place: req.body.place,
               description: alldata.weather[0].description,
